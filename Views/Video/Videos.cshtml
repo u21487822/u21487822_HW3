@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Videos";
+}
+
+<h2>Videos</h2>
+<div class=" container">
+    <div class="row-fluid">
+
+        @foreach (var videos in Model)
+        {
+
+
+            <div class=" col-md-4">
+                <div class="card card-outline-info d-flex h-100" style="width: 18rem;">
+                    @* <a class="createEditStudent btn btn-primary"
+                    data-fancybox-type="iframe"
+                    data-caption="Optional caption">
+                    href="@Url.Action("Create", "Student")">Create New Student</a>  *@
+                    <a href="/Media/Video/@videos.FileName" data-fancybox="gallery">
+                        <video class="card-img-top" height="180" width="230">
+                            <source src="/Media/Video/@videos.FileName" type="video/mp4">
+                        </video>
+                    </a>
+                    @*//@Html.ActionLink("link text", "someaction", "somecontroller", new { id = "123" }, null)
+        // Download/FileController/ Screenshot
+         // generate an <a href="">
+          //@Url.Action("someaction", "somecontroller", new { id = "123" })*@
+                    <p>@videos.FileName</p>
+                    <input type="button" class="btn btn-success" value="Download" onclick="location.href='@Url.Action("Download", "Video", new { fileName = videos.FileName})'" />
+                    <input type="button" class="btn btn-danger" value="Delete" onclick="location.href='@Url.Action("Delete", "Video", new { fileName = videos.FileName})'" />
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+
+}
+
+@model u21487822_HW3.Models.FileModel
+<div class="row" id="heading">
+    <h2>myMedia</h2>
+    <h5>File Uploading</h5>
+</div>
+
+<div class="row">
+    <div class="col-md-7">
+        <h2>Description</h2>
+        <p>
+            An object represents a thing that you can program with — a page, a text box, a file, an
+            image, a web request, an email message, a customer record (database row), etc. Objects
+            have properties that describe their characteristics and that you can read or change — a
+            text box object has a Text property (among others), a request object has a Url
+            property, an email message has a From property, and a customer object has a FirstName
+            property. Objects also have methods that are the "verbs" they can perform. Examples
+            include a file object's Save method, an image object's Rotate method, and an email
+            object's Send method.<br />
+
+            You'll often work with the Request object, which gives you information like the values of
+            text boxes (form fields) on the page, what type of browser made the request, the URL of
+            the page, the user identity, etc. The following example shows how to access properties
+            of the Request object and how to call the MapPath method of the Request object
+        </p>
+    </div>
+    <div class="col-md-5">
+        <h2>Option Select</h2>
+
+
+        @using (@Html.BeginForm("FileUpload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        // an encoding type that allows files to be sent through a POST.
+        // Quite simply, without this encoding the files cannot be sent through POST.
+        {
+            // Radiobutton link
+            <div>
+                Document @Html.RadioButton("FileType", "Document")
+                <br />
+                Image @Html.RadioButton("FileType", "Image")
+                <br />
+                Video @Html.RadioButton("FileType", "Video")
+                <br />
+            </div>
+
+            @*<input type="file" id="fileDownload" multiple>
+
+            <br><br>
+
+            <button onclick="myFunction()">
+                Click
+            </button>
+
+            <p id="GFG" style="Font-size:20px;"></p>
+
+            <script>
+
+        function myFunction() {
+            var x = document.getElementById("geeks").multiple
+                    = "false";
+
+            document.getElementById("GFG").innerHTML
+                    = "The value of the multiple attribute"
+                    + " was changed to " + x;}
+        
+            </script>*@
+
+
+
+            @*<input type="file" id="myfile" name="myfile">*@
+            <input type="file" name="files" multiple="multiple" />
+
+            <br /><br />
+            <input type="submit" class="btn" name="Upload" />
+        }
+    </div>
+</div>
